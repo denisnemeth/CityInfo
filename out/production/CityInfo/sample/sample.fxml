@@ -18,11 +18,11 @@
    <children>
       <Pane prefHeight="200.0" prefWidth="500.0">
          <children>
-            <ComboBox fx:id="combo_country" layoutX="20.0" layoutY="40.0" prefWidth="120.0" />
-            <Label fx:id="label_country" layoutX="20.0" layoutY="15.0" text="Country" />
-            <ComboBox fx:id="combo_city" layoutX="160.0" layoutY="40.0" prefWidth="120.0" />
-            <Label fx:id="label_city" layoutX="160.0" layoutY="15.0" text="City" />
-            <Button fx:id="button_1" layoutX="420.0" layoutY="155.0" mnemonicParsing="false" text="Button" />
+            <ComboBox fx:id="combo_country" layoutX="20.0" layoutY="40.0" onAction="#enableComboCity" onShowing="#getCountries" prefHeight="30.0" prefWidth="220.0" />
+            <Label fx:id="label_country" layoutX="100.0" layoutY="15.0" text="Country" />
+            <ComboBox fx:id="combo_city" disable="true" layoutX="260.0" layoutY="40.0" onAction="#enableButton_1" onShowing="#getCities" prefHeight="30.0" prefWidth="218.0" />
+            <Label fx:id="label_city" layoutX="355.0" layoutY="15.0" text="City" />
+            <Button fx:id="button_1" disable="true" layoutX="420.0" layoutY="155.0" mnemonicParsing="false" text="Button" />
          </children></Pane>
    </children>
 </GridPane>
