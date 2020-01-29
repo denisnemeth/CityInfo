@@ -40,8 +40,8 @@ public class Database {
             String countryName = rs.getString("country.Name");
             String name = rs.getString("city.Name");
             String code2 = rs.getString("country.Code2");
-            String code3 = rs.getString("country.Code");
-            int population = rs.getInt("Population");
+            String code3 = rs.getString("city.CountryCode");
+            int population = rs.getInt("Info");
             City newCity = new City(countryName, name, population, code2, code3);
             cityList.add(newCity);
         }
