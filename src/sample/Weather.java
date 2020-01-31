@@ -8,14 +8,20 @@ public class Weather {
     private int humidity;
     private double lon;
     private double lat;
+    private int visibility;
+    private String sunrise;
+    private String sunset;
 
-    public Weather(String name, String country, double temp, int humidity, double lon, double lat) {
+    public Weather(String name, String country, double temp, int humidity, double lon, double lat, int visibility, String sunrise, String sunset) {
         this.name = name;
         this.country = country;
         this.temp = temp;
         this.humidity = humidity;
         this.lon = lon;
         this.lat = lat;
+        this.visibility = visibility;
+        this.sunrise = sunrise;
+        this.sunset = sunset;
     }
     public String getName() {
         return name;
@@ -35,22 +41,13 @@ public class Weather {
     public double getLat() {
         return lat;
     }
-    public void setName(String name) {
-        this.name = name;
+    public int getVisibility() {
+        return visibility;
     }
-    public void setCountry(String country) {
-        this.country = country;
+    public String getSunrise() {
+        return sunrise;
     }
-    public void setTemp(double temp) {
-        this.temp = temp;
-    }
-    public void setHumidity(int humidity) {
-        this.humidity = humidity;
-    }
-    public void setLon(double lon) {
-        this.lon = lon;
-    }
-    public void setLat(double lat) {
-        this.lat = lat;
+    public String getSunset() {
+        return sunset;
     }
 }
