@@ -82,6 +82,7 @@ public class Controller {
         label_code2.setText("  Code2: " + city.getCode2());
         label_code3.setText("  Code3: " + city.getCode3());
         WebWeather ww = new WebWeather();
+        ww.getData(city.getName(), city.getCode2());
         if(ww.getData(city.getName(), city.getCode2()) != null){
             label_temp.setText("  Temperature: " + ww.getData(city.getName(), city.getCode2()).getTemp() + "°C");
             label_humidity.setText("  Humidity: " + ww.getData(city.getName(), city.getCode2()).getHumidity() + " %");
@@ -133,8 +134,20 @@ public class Controller {
     }
     public void showOnMap(ActionEvent actionEvent){
         WebWeather ww = new WebWeather();
+        String cityName = (String) combo_city.getValue();
+        City city = null;
+        for(City c : cities){
+            if(c.getName().equalsIgnoreCase(cityName)){
+                city = c;
+                break;
+            }
+        }
+        if(city == null){
+            return;
+        }
         try {
-            java.awt.Desktop.getDesktop().browse(URI.create("https://www.google.com/maps/@" + lat + "," + lon));
+            java.awt.Desktop.getDesktop().browse(URI.create("https://www.google.com/maps/@" + ww.getData(city.getName(), city.getCode2()).getLat() +
+                    "," + ww.getData(city.getName(), city.getCode2()).getLon() + ",14z"));
         }catch (Exception e){
             e.printStackTrace();
         }
